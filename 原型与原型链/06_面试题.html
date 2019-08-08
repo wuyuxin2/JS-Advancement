@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>06_面试题</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function F() {}
+      Object.prototype.a = function() {
+        console.log("a()");
+      };
+      Function.prototype.b = function() {
+        console.log("b()");
+      };
+
+      var f = new F();
+      f.a();
+      // f.b();
+      F.a();
+      F.b();
+      console.log(f);
+      console.log(Object.prototype);
+      console.log(Function.prototype);
+    </script>
+  </body>
+</html>
