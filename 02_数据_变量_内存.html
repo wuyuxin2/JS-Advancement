@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>02_数据_变量_内存</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var age = 18;
+      console.log(age);
+      // 一个小内存的2个数据: 内存存储的数据 和 地址值
+      var obj = { name: "Tom" };
+      console.log(obj); // 内容---->地址值
+      var a = obj;
+      console.log(a);
+
+      var b = "123";
+      a = b;
+      console.log(a);
+      b = { name: "234" };
+      console.log(b);
+      console.log(a);
+      a = b;
+      b.name = "123";
+      b.age = 12;
+      console.log(b);
+      console.log(a);
+      //   b = { name: "567" };
+      //   console.log(b);
+      //   console.log(a);
+      function fn(obj) {
+        obj.name = "A";
+      }
+      fn(b);
+      console.log(a.name);
+
+      var obj1 = { age: 12 };
+      var obj2 = obj1;
+      obj1 = { name: "BOB", age: 13 }; // 赋值
+      console.log(obj2.age,obj1.name,obj1.age); // 12 BOB 13
+      function f2(obj){
+          obj = {age:14}
+      }
+      f2(obj1)
+      // 函数内部的局部变量会被释放  obj被释放
+      console.log(obj1.age, obj1.name); // 13
+    </script>
+  </body>
+</html>
+
+<!-- 
+    内存分类
+        栈：全局变量/局部变量
+        堆：对象
+    内存、数据、变量三者之间的关系
+        内存用来存储数据的空间
+        变量是内存的标识
+ -->
+
+<!-- 
+     关于引用变量赋值问题
+        * n个引用变量指向同一个对象，通过一个变量修改对象内部数据，其他变量看到的是修改之后的数据
+  -->
+
+<!-- 几个问题
+     1. var a = XXX, a 内存中到底保存什么？
+        * XXX是基本数据，保存的就是这个数据
+        * XXX是对象，保存的是对象的地址值
+        * XXX是一个变量,有可能是基本数据，也可能是地址值
+    2. 在js调用函数时传递变量参数时，是值传递还是引用传递？
+        * 都是值（基本/地址值）传递
+    3. js引擎如何管理内存？
+        3.1 内存生命周期
+            * 分配小内存空间，得到使用权
+            * 存储数据，可以反复操作
+            * 释放小内存空间
+        3.2 释放内存
+            * 局部变量：函数执行完毕
+            * 对象：成为垃圾对象 ==》 垃圾回收器回收
+  -->
