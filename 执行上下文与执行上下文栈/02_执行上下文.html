@@ -18,7 +18,7 @@
             * this ==> 赋值（window）
         * 开始执行全局代码
     3. 函数执行上下文
-        * 在调用函数，准备执行函数体之前，创建对应的函数执行上下文对象
+        * 在调用函数，准备执行函数体之前，创建对应的函数执行上下文对象(虚拟的，存在于栈中)
         * 对局部数据进行预处理
             * 形参变量 ==> 赋值（实参）==> 添加为执行上下文的属性
             * arguments ==> 赋值（实参列表），添加为执行上下文的属性
@@ -29,12 +29,29 @@
  -->
   <body>
     <script type="text/javascript">
+      // 全局执行上下文
       console.log(a1, window.a1);
-      window.a2();
+      console.log(window.a2);
       console.log(this);
 
       var a1;
       function a2() {}
+
+      console.log('--------------------');
+      // 函数执行上下文
+      function fn(a1) {
+        console.log(a1); // 2
+        console.log(a2); // undefined
+        a3(); // a()
+        console.log(this); // window
+        console.log(arguments); //伪数组(2,3)
+
+        var a2 = 3;
+        function a3() {
+          console.log("a3()");
+        }
+      }
+      fn(2, 3)
     </script>
   </body>
 </html>
