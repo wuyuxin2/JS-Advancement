@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Date对象</title>
+    <script type="text/javascript">
+        // 创建一个Date对象
+        var d = new Date(); // 代码执行的时间;
+        console.log(d);
+
+        // 创建一个指定的时间
+        // 需要在构造函数中传递一个表示时间的字符串作为参数
+        var d2 = new Date("12/03/2016 11:10:30");
+        console.log(d2);
+
+        /* getDate() 获取当前对象是 ？日 */
+        var date = d2.getDate();
+        var day = d2.getDay(); // 周 ？ 0-6
+        var month = d2.getMonth() + 1; // 0-11
+        var year = d2.getFullYear();
+
+        /* getTime() 获取当前日期对象的时间戳 格林威治标准时间1970年1月1日 0时0分0秒 毫秒数 */
+        var time = d2.getTime();
+        console.log("date:" + date);
+        console.log("day:" + day);
+        console.log("month:" + month);
+        console.log("year:" + year);
+        console.log("time:" + time);
+        
+        // 当前时间戳
+        time = Date.now();
+        console.log(time);
+
+        // 应用：利用时间戳测试代码的性能
+        var start = Date.now();
+        for(var i=0;i<100;i++){
+             console.log(i);
+        }
+        var end = Date.now();
+        console.log(end-start);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

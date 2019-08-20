@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>arguments</title>
+    <script type="text/javascript">
+        function fun(a,b){
+            console.log(arguments instanceof Array); // false arguments是类数组对象
+
+            // 即使不定义形参，也能通过arguments传参
+            console.log(arguments.length);
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            // 当时函数对象
+            console.log(arguments.callee);
+        }
+        fun("hello",true);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
