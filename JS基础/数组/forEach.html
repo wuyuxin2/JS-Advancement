@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>forEach</title>
+    <script type="text/javascript">
+        var arr = ["孙悟空", "猪八戒", "唐僧", "沙和尚"];
+        /* 
+            - forEach()方法需要一个函数作为参数 
+            - 有几个元素执行几次
+            - 三个参数：value,index,array
+        */
+        arr.forEach(function(value, index, array){
+            console.log("value=" + value);
+            console.log("index=" + index);
+            console.log("array=" + array);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

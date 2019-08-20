@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array其他方法</title>
+    <script>
+        var arr = ["孙悟空", "猪八戒", "唐僧", "沙和尚"];
+        var arr2 = ["白骨精", "玉兔精", "金角大王", "铁扇公主"];
+        var arr3 = ["二郎神", "玉皇大帝"];
+
+        /* 
+            concat() 连接两个或多个数组，返回新数组
+             - 不会影响原数组 
+        */
+        var result = arr.concat(arr2,arr3,"牛魔王");
+
+        console.log(result);
+
+        /* 
+            join() 将数组转换成一个字符串
+                - 不会影响原数组
+                - 该方法不会对原数组产生影响
+                - 可以指定一个字符串作为参数，这个额字符串将会成为数组中元素的连接符
+        */
+        arr = ["孙悟空", "猪八戒", "唐僧", "沙和尚"];
+        result = arr.join("---");
+        console.log(result);
+        console.log(typeof result);
+
+        /* 
+            reverse() 反转数组
+                - 直接修改原数组
+
+        */
+        arr.reverse();
+        console.log(arr.toString());
+
+        /* 
+            sort() 
+                - 对数组进行排序
+                - 直接改变原数组
+                - 即使对纯数字的数组，也会按照Unicode编码排序，所以不太适合直接用
+                - 自己定义排序规则:
+                    - 回调函数中需要定义两个形参
+                    - 浏览器会分别使用数组中的元素作为实参去调用回调函数
+                    - 使用哪个元素不确定，但肯定的是在数组中a一定在b前面
+                - 浏览器会根据回调函数的返回值来决定元素的顺序
+                    - 如果返回一个大雨0的值，则元素会交换位置
+                    - 小于或等于0，位置不变
+        */
+        arr = ["d","f","a","e","g","x"];
+        arr.sort();
+        // arr.reserve();
+        console.log(arr.toString());
+
+        arr = [5,4,2];
+        arr.sort(function(a,b){
+            console.log("a=" + a);
+            console.log("b=" + b);
+            // 升序
+            return a-b;
+        });
+
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>数组</title>
+    <script type="text/javascript">
+      /* 
+            内建对象
+            宿主对象
+            自定义对象
+
+            数组（Array）
+                - 数组也是一个对象
+                - 也是用来存储数据
+                - 普通对象是使用字符串作为属性名，而数组使用数字来作为索引操作元素
+                - 索引，从0开始 
+                - 存储性能比普通对象要好
+         */
+
+      var obj = new Object();
+      obj.name = "sunwukong";
+
+      // 创建数组
+      var array = new Array();
+      console.log(typeof array); // object
+
+      /* 
+        添加元素
+       */
+       array[0] = 10;
+       array[1] = 10;
+       array[2] = 10;
+       console.log(array);
+
+       /* 读取 */
+       console.log(array[2]);
+       console.log(array[3]);
+
+       /* 获取长度 length 连续数组*/
+        console.log(array.length);
+        // 不连续的，最大索引
+        array[10] = 67;
+        console.log(array.length);
+        console.log(array);
+        // 修改length
+        array.length = 10;
+        console.log(array.length);
+        console.log(array);
+        // 向数组的最后一个位置添加元素
+        array[array.length] = 70;
+        array.push(80);
+        console.log(array);
+
+        /* 数组字面量 */
+        var arr = [];
+        console.log(arr);
+
+        var arr1 = [1,2,3,4,5,10];
+        console.log(arr1);
+
+        var arr2 = new Array(1,2,3,4,6);
+        console.log(arr2);
+
+        arr2 = new Array(10);
+        console.log(arr2);
+
+        // 数组中的元素可以是任何的数据类型
+        // 也可以是对象
+        // 也可以是函数
+
+
+        /* 
+            四个方法
+             - push()添加到末尾，返回新数组的长度
+             - pop()删除最后一个，并将删除的元素作为返回值返回
+             - unshift()在开头添加一个或多个元素，返回新数组长度
+             - shift()删除数组的第一个元素，并返回该元素
+        */
+
+        /* 遍历数组 */
+        for (var i = 0; i < arr1.length; i++){
+            console.log(arr1[i]);
+        }
+
+
+
+    </script>
+
+
+  </head>
+  <body></body>
+</html>

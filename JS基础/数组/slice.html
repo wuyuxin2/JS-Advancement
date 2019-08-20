@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slice</title>
+    <script type="text/javascript">
+        var arr = ["孙悟空", "猪八戒", "唐僧", "沙和尚"];
+
+        /* 
+            slice() 从数组提取指定元素
+             - 该方法不改变原数组，返回一个新数组
+              参数：
+                1.截取开始index，包含
+                2.结束index，不包含（可省略，从开始到全部）
+                3.可以是负数，则从后往前
+        */
+        var result = arr.slice(2);
+        console.log(result);
+        result = arr.slice(-2);
+        console.log(result);
+
+        /* 
+            splice() 删除数组中指定元素 
+                - 影响到原数组
+                - 返回被山的元素
+              参数：
+                1.开始index
+                2.删除数量
+                3.以及以后。。
+                    传递一些新元素，插入开始位置前面
+        */
+        var spliceResult = arr.splice(1, 0, "新加：牛魔王");
+        console.log(spliceResult);
+        console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
