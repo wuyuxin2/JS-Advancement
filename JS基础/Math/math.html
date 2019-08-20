@@ -7,7 +7,21 @@
     <title>Math</title>
     <!-- Math和其他对象不一样，他不是一个构造函数，可以直接用 -->
     <script type="text/javascript">
+        console.log(Math.ceil(1.1)); // 2  (向上取整)
+        console.log(Math.floor(1.9)); // 1 (向下取整)
+        console.log(Math.round(1.4)); // 1 (四舍五入)
+        console.log(Math.random()); // 随机生成0-1的一个数
+        // 0-10
+        console.log(Math.round(Math.random() * 10));
+        // 1-10
+        console.log(Math.round(Math.random() * 9) + 1);
+        // 2-10
+        console.log(Math.round(Math.random() * 8) + 2);
+        // x-y
+        /* console.log(Math.round(Math.random() * (y-x)) + x); */
+        console.log(Math.max(1,2,3,5,89));
         
+
     </script>
 </head>
 <body>

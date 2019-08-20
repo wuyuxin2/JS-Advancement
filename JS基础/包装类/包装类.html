@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>包装类——浏览器底层自己用，临时包装</title>
+    <script>
+      /* 
+            基本数据结构
+            String Number Boolean Null Undefined
+            引用数据类型
+            Object
+
+            在JS中为我们提供了三个包装类，将基本数据类型的数据转换为对象
+            String()
+            Number()
+            Boolean()
+
+            很少用
+         */
+      var a = 123;
+      console.log(typeof a);
+      var num = new Number(3);
+      console.log(typeof num);
+
+      // 对基本数据类型的值去调用属性和方法，浏览器会将它临时使用包装类将其装换为对象，但调用完以后，再将其转换回基本数据类型
+      var s = 123;
+      s.hello = "hello";
+      console.log(s.hello); // undefined
+    </script>
+  </head>
+  <body></body>
+</html>
