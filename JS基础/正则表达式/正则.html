@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式</title>
+    <script type="text/javascript">
+        /* 
+            正则表达式
+            - 语法：new RegExp("正则表达式", "匹配模式");
+         */
+        var reg = new RegExp("a","i");
+        reg = /a/i; // 字面量形式
+        reg = /a|b|c/i; // a或b或c
+        reg = /[abcdefz]/; // []也是或的意思
+        reg = /[a-z]/i; // 任意字母
+        reg = /[0-9]/; // 任意数字
+        reg = /[^0-9]/; // 除了数字
+        reg = /a[bde]c/; // 检查是否含有abc/adc/aec
+        reg = /[^ab]/; // 除了ab意外还有其他
+        var str = "ababa";
+
+
+        /* test() 检测字符串是否符合正则表达式的规则 */
+        var result = reg.test(str);
+        console.log(result);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

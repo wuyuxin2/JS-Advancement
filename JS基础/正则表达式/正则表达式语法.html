@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>正则表达式语法</title>
+    <script type="text/javascript">
+      var reg = /aaaaa/;
+      /* 
+            量词 {n}
+             - 只对前面一个内容起作用 
+        */
+      reg = /ba{5}c/;
+      reg = /(ba){5}c/;
+      reg = /ba{1,3}c/; // 出现一次到三次
+      reg = /ba{3,}c/; // 三次以上
+      reg = /ab+c/; // 至少一个，相当于{1,}
+      reg = /ab*c/; // 0个或多个，相当于{0,}
+      reg = /ab?c/; // 0个或1个，相当于{0,1}
+
+      /* 
+        检查一个字符串是否以“a”开头
+      */
+      reg = /^a/; // 匹配开头的a
+      reg = /a$/; // 匹配结尾的a
+      reg = /^a$/; // a
+      reg = /^a|a$/; // a开头或a结尾
+
+      /* 
+        手机号的规则
+        1.1开头
+        2.第二位3-9数字
+        3.^1 [3-9] [0-9]{9}$
+      */
+
+      /* 
+        检查一个字符串是否含有.
+            - 使用\作为转义字符
+      */
+      reg = /./; // 任意字符
+      reg = /\./; // 任意字符
+      console.log(reg.test("abcd"));
+
+      /* 
+        \w
+          - 任意字母、数字、_  [A-z0-9_]
+        \W
+          - 除了字母、数字、_  [^A-z0-9_]
+        \d
+          - 任意的数字  [0-9]
+        \D
+          - 除了数字  [^0-9]
+        \s
+          - 空格
+        \S
+          - 除了空格
+        \b
+          - 单词边界
+        \B
+          - 除了单词边界
+     */
+
+      /* 创建一个正则表达式检查一个字符串中是否含有 单词 child */
+      reg = /\bchild\b/;
+      console.log(reg.test("hello child ren"));
+
+      // 接收一个用户的输入
+      // var str = prompt("请输入您的用户名：");
+      var str = ("      hel    lo      ");
+      console.log(str);
+
+      // 去除字符串中的空格，用""替换空格
+      // str = str.replace(/\s/g, "");
+      // console.log(str);
+
+      // 去除开头的空格
+      // str = str.replace(/^\s*/, "");
+
+      // 去除开头和结尾的空格
+      str = str.replace(/^\s*|\s*$/g, "");
+      console.log(str);
+      str = str.replace(/^\s+|\s+$/g, "");
+      console.log(str);
+    </script>
+  </head>
+  <body></body>
+</html>
