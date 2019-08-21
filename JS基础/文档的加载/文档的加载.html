@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>文档的加载</title>
+    <script type="text/javascript">
+      // 先加载
+      // btn.onclick = function(){}
+      // 此时页面还没加载，btn=null,会报错
+      alert("先加载：hello!");
+      // onload事件会在页面加载完成后立即发生
+      // 为window绑定一个onload事件
+      window.onload = function(){
+          alert("确保页面加载完再执行！")
+      }
+    </script>
+  </head>
+  <!-- 
+    浏览器在加载一个页面时，是按照自上向下的顺序加载的，
+    读到一行就运行一行，如果将script标签写到页面的上边
+    在代码执行时，页面还没有加载
+ -->
+
+  <body>
+    <button id="btn">我是一个按钮！</button>
+  </body>
+</html>
