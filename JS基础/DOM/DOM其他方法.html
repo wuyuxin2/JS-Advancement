@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DOM其他方法</title>
+    <script type="text/javascript">
+      window.onload = function() {
+        // var body = document.getElementsByTagName("body");
+        /* 在document中有一个属性body，它保存的是body的引用 */
+        var body = document.body;
+        /* html根标签 */
+        var html = document.documentElement;
+
+        var all = document.all;
+        console.log(all.length);
+        /* for(var i = 0; i < all.length; i++) {
+          console.log("i:" + all[i]);
+        }; */
+
+        all = document.getElementsByTagName("*");
+
+        /* .box1 div */
+        // document.querySelector()
+        //   - 根据一个css选择器来选择对象
+        //   - 总会返回唯一一个，只会返回第一个
+        var div = document.querySelector(".box1 div");
+        console.log(div.innerHTML);
+        var box1 = document.querySelector(".box1");
+        console.log(box1.innerHTML);
+        // document.querySelectorAll()
+        //   - 返回所有，封装到一个数组
+        box1 = document.querySelectorAll(".box1");
+        console.log(box1.length);
+
+      };
+    </script>
+  </head>
+  <body>
+    <div class="box1">
+      <div>我是第一个box1.</div>
+    </div>
+    <div class="box1">
+      <div>asdgadfg</div>
+    </div>
+    <div class="box1">
+      <div>asdgadfg</div>
+    </div>
+    <div></div>
+  </body>
+</html>
