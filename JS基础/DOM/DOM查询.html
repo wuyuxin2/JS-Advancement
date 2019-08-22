@@ -5,8 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DOM查询</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                var bj = document.getElementById("bj");
+                // innerHTML 元素内部的html代码
+                alert(bj.toString() + bj.innerHTML);
+            };
+
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                var lis = document.getElementsByTagName("li"); // 返回一个类数组对象
+                //alert(lis.length);
+
+                // 遍历
+                for(var i = 0; i < lis.length; i++){
+                    alert(lis[i].innerHTML);
+                }
+            };
+
+            var btn03 = document.getElementById("btn03");
+            btn03.onclick = function(){
+                var inputs = document.getElementsByName("gender");
+                // alert(inputs.length);
+                for(var i = 0; i < inputs.length; i++){
+                    // 对于自结束标签，innerHTML没用
+                    // alert(inputs[i].innerHTML);
+                    alert(inputs[i].value);
+                }
+            };
+        };
+    </script>
 </head>
 <body>
+    <div id="left">
+        <ul>
+            <li id="bj">北京</li>
+            <li>杭州</li>
+            <li>金华</li>
+            <li>宁波</li>
+        </ul>
+        
+    </div>
+    <div id="inputs">
+        性别：
+        <input class="hello" type="radio" value="male" name="gender">male
+        <input type="radio" value="female" name="gender">female
+    </div>
+    <div id="right">
+        <button id="btn01">查找#bj节点</button>
+        <button id="btn02">查找所有li节点</button>
+        <button id="btn03">查找name=gender的所有节点</button>
+        <button id="btn04"></button>
+        <button id="btn05"></button>
+        <button id="btn06"></button>
+        <button id="btn07"></button>
+        <button id="btn08"></button>
+        <button id="btn09"></button>
+        <button id="btn010"></button>
+        <button id="btn011"></button>
+    </div>
     
     <script type="text/javascript">
         /* 
