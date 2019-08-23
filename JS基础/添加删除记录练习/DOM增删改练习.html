@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>添加删除记录练习</title>
+    <script type="text/javascript">
+      /* delA函数 */
+      function delA() {
+        console.log("del:" + this);
+        // 获取要删除的tr
+        var tr = this.parentNode.parentNode;
+        // var name = tr.firstElementChild; // HTML DOM Element 对象
+        var name = tr.children[0];
+        // 删除之前给个提示
+        var flag = confirm("确认删除" + name.innerText + "吗？");
+        console.log(flag);
+        // 删除tr
+        if (flag) {
+          tr.parentNode.removeChild(tr);
+        }
+      }
+
+      window.onload = function() {
+        /* Delete */
+        var allA = document.getElementsByTagName("a");
+        for (var i = 0; i < allA.length; i++) {
+          console.log(i);
+          console.log(allA[i]);
+          console.log(this);
+
+          allA[i].onclick = delA; // 不是delA()
+        }
+
+        /* 添加员工的功能
+            - 点击按钮以后，将员工信息添加到表格中
+         */
+        var submit = document.getElementById("submit");
+        submit.onclick = function() {
+          // 获取需要提交的items
+          var items = document.getElementsByName("items");
+          // 获取innerHTML
+          console.log(items);
+          // 获取tbody
+          var tbody = document.getElementsByTagName("tbody")[0];
+          // 创建新tr，再加到tbody上
+          var tr = document.createElement("tr");
+
+          /* 直接设置tr 
+             tr.innerHTML = "<td>" + name + "</td>" + 
+                            "<td>" + email + "</td>" + 
+                            "<td>" + salary + "</td>" + 
+                            "<td><a href="javascript:;">Delete</a></td>";
+             var a = tr.getElementsByTagName("a")[0];
+             a.onclick = delA;
+          */
+
+          for (var i = 0; i < items.length; i++) {
+            // 创建新td，再加到tr上
+            var td = document.createElement("td");
+            var value = items[i].value;
+            td.innerHTML = value;
+            tr.appendChild(td);
+            console.log(value);
+          }
+          // 创建Delete Element,再添加到tr上
+          var del = document.createElement("a");
+          del.innerHTML = "Delete";
+          del.href = "javascript:;";
+          // 为新添加的delete添加绑定事件
+          del.onclick = delA;
+
+          var td = document.createElement("td");
+          td.appendChild(del);
+          tr.appendChild(td);
+          tbody.appendChild(tr);
+        };
+      };
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #table {
+        text-align: center;
+      }
+      table {
+        margin: auto;
+      }
+      #form {
+        width: 600px;
+        padding: 10px;
+        margin: auto;
+        border: 1px solid black;
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="table">
+      <table border="1">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Salary</th>
+          <th>&nbsp</th>
+        </tr>
+        <tr>
+          <td>Tom</td>
+          <td>tom@tom.com</td>
+          <td>5000</td>
+          <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+          <td>Tom</td>
+          <td>tom@tom.com</td>
+          <td>5000</td>
+          <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+          <td>Tom</td>
+          <td>tom@tom.com</td>
+          <td>5000</td>
+          <td><a href="javascript:;">Delete</a></td>
+        </tr>
+      </table>
+    </div>
+    <div id="form">
+      <span>添加新员工</span>
+      <br />
+      name:<input type="input" name="items" id="name" />
+      <br />
+      email:<input type="input" name="items" id="email" />
+      <br />
+      salary:<input type="input" name="items" id="salary" />
+      <br />
+      <input type="button" name="" id="submit" value="Submit" />
+    </div>
+  </body>
+</html>
