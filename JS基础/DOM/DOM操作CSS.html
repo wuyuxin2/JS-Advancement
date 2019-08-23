@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM操作内联样式</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            /* 修改box1的大小 */
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                /* 用JS修改元素的CSS（修改的是内联样式，内联样式有较高的优先级）
+                    语法：元素.style.样式名 = 样式值
+                 */
+                 box1.style.width = "300px";
+                 box1.style.backgroundColor = "yellow"; // 样式名：驼峰式
+            }
+
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                /* 读取样式 */
+                // 只能读取内联样式
+                // 不能读取样式表的样式
+                console.log(box1.style.width);
+            }
+        }
+    </script>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            /* !improtant 最高优先级 */
+            /* background-color: red !important;  */
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn01">点我一下</button>
+    <button id="btn02">btn02</button>
+    <div id="box1"></div>
+</body>
+</html>
