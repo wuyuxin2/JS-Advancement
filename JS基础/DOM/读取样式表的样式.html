@@ -13,8 +13,29 @@
                 // alert(box1.style.width);
                 /* 读取当前显示的样式
                     语法：元素.currentStyle.样式名
+                    适用：IE
                  */
-                
+                // alert(box1.currentStyle.width);
+                /* 
+                    其他浏览器：getComputedStyle()
+                    两个参数：
+                        - 要获取样式的元素
+                        - 可以传递一个伪元素，一般null
+                    IE8及以下不适用
+
+                    通过这两个方法都是：只读的，不能修改，如果修改，必须通过style
+                 */
+                alert(getComputedStyle(box1,null).backgroundColor);
+            }
+        }
+
+        /* 定义一个函数，用来获取指定元素的当前的样式 */
+        function getStyle(obj, name){
+            if(window.getComputedStyle){ // 变量没找着报错，属性没找着返回undefined
+                return getComputedStyle(obj,null)[name];
+            }
+            else{
+                return obj.currentStyle[name];
             }
         }
     </script>
@@ -28,6 +49,6 @@
 </head>
 <body>
     <button id="btn01">点我一下</button>
-    <div id="box1"></div>
+    <div id="box1" style="width: 100px; background-color:aquamarine"></div>
 </body>
 </html>
