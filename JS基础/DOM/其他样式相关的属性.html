@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>其他样式相关的属性</title>
+    <script>
+      window.onload = function() {
+        var box1 = document.getElementById("box1");
+        var btn01 = document.getElementById("btn01");
+        btn01.onclick = function() {
+          /* 
+                    clientWidth
+                    clientHeight
+                        - 可见宽度和高度
+                        - 这些属性不带px
+                        - 包括内容区和内边区,不包括边框
+                        - 只读的
+                 */
+          console.log(box1.clientWidth);
+          // box1.clientHeight = 300;
+
+          /* offsetHeight */
+          console.log(box1.offsetHeight); // 包括边框
+
+          /* offsetParent 
+                - 获取到离当前元素最近的开启了定位的祖先元素
+          */
+          console.log(box1.offsetParent); // 定位父元素
+
+          /* 
+            offsetLeft 
+            offsetTop
+                - 离它父元素的偏移量
+          */
+          console.log(box1.offsetTop);
+
+          /* scrollHeight 滚动高度*/
+          // box4.scrollHeight - box4.scrollTop == clientHeight 滚动条到底了！！！
+          alert(box4.scrollHeight - box4.scrollTop);
+        };
+      };
+    </script>
+    <style>
+      #box1 {
+        width: 110px;
+        height: 100px;
+        background-color: red;
+        padding: 10px;
+        border: 10px solid yellow;
+        margin: 0px;
+      }
+      #box2{
+          padding: 100px;
+          background-color: aquamarine;
+      }
+      #box4{
+          width:200px;
+          height: 200px;
+          background-color: #afa;
+          /* overflow: hidden; */
+          overflow: auto;
+      }
+      #box5{
+          width: 100px;
+          height: 600px;
+          background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box4">
+        <div id="box5"></div>
+    </div>
+    <button id="btn01">带你玩！</button>
+    <!-- position:relative 相对定位 -->
+    <div id="box3" style="position: relative">
+      <div id="box2" style="position:relative">
+        <div id="box1"></div>
+      </div>
+    </div>
+  </body>
+</html>
