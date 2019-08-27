@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>事件冒泡</title>
+    <title>事件冒泡Bubble</title>
     <script type="text/javascript">
-
+        window.onload = function(){
+            var s1 = document.getElementById("s1");
+            s1.onclick = function(){
+                alert("span");
+                // 取消冒泡
+                event.cancelBubble = true;
+            }
+            var box1 = document.getElementById("box1");
+            box1.onclick = function(){
+                alert("box");
+                
+            }
+            
+        }
     </script>
     <style>
         #box1{
