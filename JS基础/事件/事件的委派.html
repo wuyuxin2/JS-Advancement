@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+        /* 
+            事件委托
+                - 将事件同意绑定给元素的祖先元素
+         */
+        window.onload  = function(){
+            var allA = document.getElementsByTagName("a");
+            for(var i = 0; i < allA.length; i++){
+                allA[i].onclick = function(){
+                    console.log(i);
+                }
+            }
+            var u1= document.getElementById("u1");
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                var li = document.createElement("li");
+                li.innerHTML = "<a href='javascript:;' class='link'>超新建的</a>"
+                u1.appendChild(li);
+            }
+        }
+    </script>
+  </head>
+  <body>
+    <button id="btn">添加超链接</button>
+    <ul id="u1">
+      <li>
+        <a href="javascript:;" class="link">超连接1</a>
+      </li>
+      <li>
+        <a href="javascript:;" class="link">超连接2</a>
+      </li>
+      <li>
+        <a href="javascript:;" class="link">超连接3</a>
+      </li>
+    </ul>
+  </body>
+</html>
