@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>拖拽</title>
+    <style type="text/css">
+      #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+      }
+      #box2 {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        position: absolute;
+        left: 200px;
+        top: 200px;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function() {
+        /* 拖拽box1 */
+        /* 
+                onmousedown
+                onmousemove
+                onmouseup
+            */
+        var box1 = document.getElementById("box1");
+        box1.onmousedown = function(event) {
+            // 护卫事件setCapture,设置box1捕获所有的鼠标点击事件
+            // box1.setCapture();
+
+            event = event || window.event;
+            // 鼠标与box1的相对位置不变
+            // div的偏移量 鼠标.clientX-元素.offsetLeft
+            var ol = event.clientX - box1.offsetLeft;
+            var ot = event.clientY - box1.offsetTop;
+
+
+          // 为document绑定一个onmousemove事件
+          document.onmousemove = function(event) {
+            
+
+            event = event || window.event;
+            var left = event.clientX - ol;
+            var top = event.clientY -ot;
+
+            box1.style.left = left + "px";
+            box1.style.top = top + "px";
+          };
+          // 给document绑定，而不是box1
+          document.onmouseup = function() {
+            // 当鼠标松开，固定在当前位置
+            // 取消document的onmousemove
+            document.onmousemove = null;
+            document.onmouseup = null;
+          };
+        };
+      };
+    </script>
+  </head>
+  <body>
+    hello world!!!!!
+    <div id="box1"></div>
+    <div id="box2"></div>
+  </body>
+</html>
