@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>复合选择器</title>
+    <style>
+      .red {
+        color: red;
+      }
+      /* 交集选择器 */
+      p.red {
+        font-size: 30px;
+      }
+      div.red {
+        font-size: 15px;
+      }
+      /* 并集选择器 */
+      div,
+      p,
+      span,
+      h1.liming {
+        color: red;
+        font-size: 14px;
+      }
+      /* 后代选择器 */
+      .wangjianlin p {
+        color: pink;
+      }
+      .nav li { /* 可以选择儿子 孙子 重孙子... */
+        color: black;
+      }
+      /* 子元素选择器 ,与后代选择器一起用有效果*/ 
+      .nav > li {
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>1. 交集选择器</h4>
+    <div class="red">熊大</div>
+    <div>熊二</div>
+    <div>熊熊</div>
+    <p>小明</p>
+    <p>小红</p>
+    <p class="red">小强</p>
+    <hr />
+    <h4>2. 并集选择器</h4>
+    <div>刘德华</div>
+    <p>张学友</p>
+    <span>郭富城</span>
+    <h1>黎明</h1>
+    <h1>黎明</h1>
+    <h1 class="liming">黎明</h1>
+    <hr />
+    <h4>3. 后代选择器</h4>
+    <p>王者荣耀</p>
+    <div class="wangjianlin">
+      <p>王思聪</p>
+    </div>
+    <div>
+      <p>王宝强</p>
+    </div>
+    <hr />
+    <h4>4. 子元素选择器</h4>
+    <ul class="nav">
+      <li>
+        一级菜单
+        <ul>
+          <li>二级菜单</li>
+          <li>二级菜单</li>
+          <li>二级菜单</li>
+        </ul>
+      </li>
+      <li class="nav">
+        一级菜单
+        <ul>
+          <li>二级菜单</li>
+          <li>二级菜单</li>
+          <li>二级菜单</li>
+        </ul>
+      </li>
+      <li class="nav">
+        一级菜单
+        <ul>
+          <li>二级菜单</li>
+          <li>二级菜单</li>
+          <li>二级菜单</li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>
