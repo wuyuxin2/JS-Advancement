@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>链接伪类选择器</title>
+    <style>
+      a:link {
+        font-size: 16px;
+        color: black;
+        font-weight: bold;
+      }
+      a:visited {
+        font-size: 16px;
+        color: orange;
+        font-weight: bold;
+      } /* 一般不用 */
+      a:hover {
+        font-size: 16px;
+        color: red;
+        font-weight: bold;
+      }
+      a:active {
+        font-size: 16px;
+        color: green;
+        font-weight: bold;
+      } /* 一般不用 */
+    </style>
+  </head>
+  <body>
+    <!-- 
+        - :link 未访问过的链接
+        - :visited 已访问的链接
+        - :hover 鼠标停留
+        - :active 选定的链接,别松开
+     -->
+    <div>
+      <a href="">秒杀</a>
+      <a href="">闪购</a>
+    </div>
+  </body>
+</html>
