@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>外边距塌陷问题</title>
+    <style>
+        /* 
+            解决办法：
+                1.给father加个border
+                2.给father加个padding
+        */
+      .father {
+        width: 300px;
+        height: 300px;
+        background-color: pink;
+        margin-top: 100px;
+        /* 3. overflow: hidden; */
+      }
+      .son {
+        width: 100px;
+        height: 100px;
+        background-color: purple;
+        margin-top: 30px;
+      }
+      div.last{
+          height: 30px;
+          border: 1px solid red;
+          margin-top: 10px;
+          padding-left: 20px; /* 没有影响 */
+          padding-top: 10px;  /* 有影响 */
+      }
+      nav{
+          width: 300px;
+          height: 40px;
+          border: 1px solid pink;
+          margin-top: 10px;
+      }
+      p{
+          /* 没有指定width，则继承父亲 块级元素*/
+          height: 20px;
+          background-color: hotpink;
+          padding-left: 20px; /* 没有影响 */
+      }
+    </style>
+  </head>
+  <body>
+      <div class="father">
+          <div class="son"></div>
+      </div>
+      <div class="last">奔跑吧兄弟！！</div>
+      <nav>
+          <p>摔跤吧爸爸！！</p>
+      </nav>
+  </body>
+</html>
+
+<!-- 
+    ⚠️注意：
+        1.width和height仅适用于块级元素，对行内元素无效（img和input除外）
+        2.总高度，注意垂直外边距合并
+        3.如果一个盒子没有给定width/height或者继承father的width/height，则padding不会影响本盒子大小
+ -->
