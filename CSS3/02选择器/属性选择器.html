@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>属性选择器</title>
+    <style>
+      /* 用[]表示 */
+      a[title] {
+        color: red;
+      }
+      input[type] {
+        color: red;
+      }
+      input[type="text"] {
+        color: green;
+      }
+      /* ^=font  表示font开头 */
+      div[class^=font]{
+          color:pink;
+      }
+      /* $  表示结束符号 */
+      div[class$=footer]{
+          color: navajowhite;
+      }
+      /* *=  表示任意位置 */
+      div[class*=news]{
+          color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <a href="#" title="我是一个百度">百度</a>
+      <a href="#" title="我是一个新浪">新浪</a>
+      <a href="#">搜狐</a>
+      <a href="#">网易</a>
+      <a href="#">土豆</a>
+    </p>
+
+    <p>
+      <input type="text" value="文本框" />
+      <input type="text" value="文本框" />
+      <input type="text" value="文本框" />
+      <input type="submit" value="submit" />
+      <input type="submit" value="submit" />
+      <input type="submit" value="submit" />
+      <input type="reset" value="reset" />
+      <input type="reset" value="reset" />
+      <input type="reset" value="reset" />
+    </p>
+
+    <div class="font12">属性选择器</div>
+    <div class="font12">属性选择器</div>
+    <div class="font24">属性选择器</div>
+    <div class="font24">属性选择器</div>
+    <div class="font24">属性选择器</div>
+    <div class="sub-footer">属性选择器</div>
+    <div class="jd-footer">属性选择器</div>
+    <div class="news-jd-nav">属性选择器</div>
+    <div class="news-jd-header">属性选择器</div>
+    
+  </body>
+</html>

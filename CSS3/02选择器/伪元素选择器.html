@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>伪元素选择器</title>
+    <style>
+      /* .demo 类选择器
+        :first-child 伪类选择器
+        ::first-letter 伪元素选择器 */
+      p::first-letter {
+        color: saddlebrown;
+        font-size: 20px;
+      }
+      p::first-line {
+        color: green;
+      }
+      p::selection {
+        /* 选中后的颜色 */
+        color: blueviolet;
+      }
+      /* 在div盒子内部的前面或者后面插入 */
+      div::before {
+        content: "开始";
+      }
+      div::after {
+        content: "结束";
+      }
+    </style>
+  </head>
+  <body>
+    <h1>链表（Linked list）</h1>
+    <p>而链表恰恰相反，它并不需要一块连续的内存空间，它通过“指针”...</p>
+    <div>18</div>
+  </body>
+</html>
