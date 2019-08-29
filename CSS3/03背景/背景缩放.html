@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>背景缩放</title>
+    <style>
+      body {
+        background-color: skyblue;
+      }
+      div {
+        width: 800px;
+        height: 500px;
+        background: hotpink url(images/1.jpeg) no-repeat;
+        /* 我们插入的图片img 直接通过width和height 设置就可 */
+        /* background-size: 100px; 尽量只改一个值，防止缩放失真 */
+        /* background-size: 50%; 缩放一半 */
+        /* background-size: cover;  铺满,有溢出隐藏 */
+        /* contain 完整显示 */
+        background-size: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>
