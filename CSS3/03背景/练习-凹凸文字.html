@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>凹凸文字</title>
+    <style>
+        body{
+            background-color: #ccc;
+        }
+        div{
+            color: #ccc;
+            font: 700 60px "微软雅黑";
+        }
+        div:first-child{
+            text-shadow: 2px 2px 1px gray,
+                -1px -1px 3px white;
+        }
+        div:last-child{
+            text-shadow: -2px -2px 1px gray,
+                2px 2px 1px white;
+        }
+    </style>
+</head>
+<body>
+    <div>我是凸起的文字</div>
+    <div>我是凹下的文字</div>
+</body>
+</html>
