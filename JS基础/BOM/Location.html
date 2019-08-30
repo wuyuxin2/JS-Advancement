@@ -20,13 +20,34 @@
                     如果把location属性修改为一个完整的路径，或相对路径，则我们页面会自动跳转到该路径
                  */
                 // location = "http://www.baidu.com";
-                location = "./Navigator.html";
+                // location = "./Navigator.html";
+
+                /* 
+                    assign()
+                        - 用来跳转到其他的页面，作用和直接修改location一样
+                 */
+                // location.assign("http://www.baidu.com");
+
+                /* 
+                    reload() 刷新
+                        - true 强制清空缓存
+                 */
+                // location.reload(true);
+
+                /* 
+                    repalce()  
+                        - 可以使用一个新的页面替换当前页面，调用完毕也会跳转页面
+                        - 不会生成历史记录，不能回退
+                 */
+                 location.replace("http://www.baidu.com")
                 
             }
         }
     </script>
 </head>
 <body>
-    <button id="btn">获取location</button>
+    <button id="btn">获取location/刷新</button>
+    <input type="text">
+
 </body>
 </html>
