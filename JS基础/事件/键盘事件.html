@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>键盘事件</title>
+    <script type="text/javascript">
+    
+        /* 
+            onkeydown 和 onkeyup
+            - 绑定在可以获取焦点的对象或者document
+            - keyCode获得按键编码
+            - altKey
+            - ctrlKey
+            - shiftKey
+         */
+   
+        window.onload = function(){
+            event = event || window.event;
+            console.log(document);
+            document.onkeydown = function(event){
+                console.log(event.keyCode);
+            }
+            if(event.keyCode === 89 && event.ctrlKey){
+                console.log("y和ctrl同时被按下");
+            }
+
+            var input = document.getElementsByTagName("input")[0];
+            input.onkeydown = function(event){
+                console.log("input按键被按下");
+                // 数字48-57
+                // 在文本框中输入内容，属于onkeydown默认行为
+                // 如果在onkydown中取消了默认行为，则输入的内容，不会出现在文本框中
+                if(event.keyCode >= 48 && evrnt.keyCode <= 57){
+                    return false;
+                }
+                
+            }
+        }
+    </script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <input type="text">
+</body>
+</html>
