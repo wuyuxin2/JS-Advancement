@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Location</title>
+    <!-- 
+        Location
+            - 该对象中封装了浏览器地址栏的信息
+     -->
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                // 直接打印location，则可以获取到地址栏的信息（当前页面的完整路径）
+                // alert(location);
+
+                /* 
+                    如果把location属性修改为一个完整的路径，或相对路径，则我们页面会自动跳转到该路径
+                 */
+                // location = "http://www.baidu.com";
+                location = "./Navigator.html";
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">获取location</button>
+</body>
+</html>

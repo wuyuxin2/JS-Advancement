@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>History</title>
+    <script>
+        window.onload = function(){
+            alert(history.length);
+            var back = document.getElementById("back");
+            back.onclick = function(){
+                history.back();
+
+                // history.forward();
+                
+                /* 跳转到指定页面 */
+                // history.go(1);
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>History</h1>
+    <button id="back">返回</button>
+    <a href="../Navigator.html">去Navigator</a>
 </body>
 </html>
