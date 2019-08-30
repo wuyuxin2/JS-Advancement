@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>BOM</title>
+    <!-- 
+        BOM
+            - 浏览器对象模型
+            - BOM可以使我们通过JS来操作浏览器
+            - 在BOM中为我们提供了一组对象，用来完成对浏览器的操作
+            - BOM对象
+                Window
+                    - 代表的使整个浏览器的窗口，同时window也是网页中的全局对象
+                Navigator
+                    - 代表的当前浏览器的信息，通过该对象可以来识别不同的浏览器
+                Location
+                    - 代表当前浏览器的地址栏信息，通过Location可以获取地址栏信息，或者操作浏览器跳转页面
+                History
+                    - 代表当前浏览器的历史记录，可以通过该对象来操作浏览器的历史记录
+                        由于隐私原因，该对象不能获取到具体的历史记录，只能操作浏览器向前或向后
+                        而且该操作只在当次访问有效
+                Screen
+                    - 代表用户的屏幕信息，通过该对象可以获取到用户的显示器相关的信息
+                
+                这些BOM对象在浏览器中都是作为window对象的属性保存的
+                    可以通过window对象来使用，也可以直接使用
+     -->
+    <script>
+      /* 
+            大部分属性都没有用了 
+            一般会使用userAgent来判断浏览器的信息
+                userAgent就是一个字符串，包含用来描述浏览器的信息    
+        */
+
+      var ua = navigator.userAgent;
+      console.log(ua);
+      if (/firefox/i.test(ua)) {
+        alert("firefox");
+      } else if (/chrome/i.test(ua)) {
+        alert("chrome");
+      } else if (/msie/i.test(ua)) {
+        alert("IE"); // IE11 已经改名了，不适用
+      } else if("ActiveXObject" in window){
+        alert("IE11");
+      }
+      /* 
+            火狐的userAgent：
+            Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:68.0) Gecko/20100101 Firefox/68.0
+        */
+      // 通过ActiveXObject判断是否是ie
+      /* if ("ActiveXObject" in window) {
+        alert("你是IE！");
+      } else {
+        alert("你不是IE！");
+      } */
+      console.log(location);
+      console.log(history);
+    </script>
+  </head>
+  <body></body>
+</html>
