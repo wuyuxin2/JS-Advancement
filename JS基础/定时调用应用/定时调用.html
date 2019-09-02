@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>定时调用</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        left: 0px;
+      }
+    </style>
+    <script>
+      function getStyle(obj, name) {
+        if (window.getComputedStyle) {
+          // 变量没找着报错，属性没找着返回undefined
+          return getComputedStyle(obj, null)[name];
+        } else {
+          return obj.currentStyle[name];
+        }
+      }
+
+      window.onload = function() {
+        var btn01 = document.getElementById("btn01");
+        var box1 = document.getElementById("box1");
+        btn01.onclick = function() {
+          // 获取box1的原来的left
+          var oldValue = getStyle(box1, "left");
+          // 开启一个定时器来执行动画
+          setInterval(function() {}, 30);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <button id="byn01">点击按钮以后box1向右移动</button>
+    <div id="box1"></div>
+  </body>
+</html>
