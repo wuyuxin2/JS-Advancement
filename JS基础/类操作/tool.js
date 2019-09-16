@@ -30,7 +30,7 @@ function hasClass(obj, cn){
             cn
  */
 function removeClass(obj, cn){
-    var reg = new RegExp(" \\b" + cn +"\\b");
+    var reg = new RegExp("\\b" + cn +"\\b");
     obj.className = obj.className.replace(reg, "");
 }
 /* 

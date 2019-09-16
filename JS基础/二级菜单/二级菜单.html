@@ -1,12 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>二级菜单</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <style>
+    span {
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background-color: rgba(0, 0, 255, 0.801);
+      display: block;
+    }
+    a {
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background-color: grey;
+      display: block;
+    }
+    .collapsed {
+      height: 30px;
+    }
+    div {
+      overflow: hidden;
+    }
+  </style>
+  <script src="../类操作/tool.js"></script>
+  <script src="../定时调用应用/tool.js"></script>
+  <script>
+    window.onload = function() {
+      /* 
+            我们的每一个菜单都是div
+                当div具有collapsed这个类时，div就是折叠的状态
+                当div没有这个类时，div就是展开的状态
+        */
+      /* 
+            点击菜单，切换菜单的显示状态
+        */
+      // 获取所有的class为menuSpan的元素
+      var menuSpans = document.querySelectorAll(".menuSpan");
+      // 定义一个变量，来保存打开的菜单
+      var openDiv = menuSpans[0].parentNode;
+      console.log(menuSpans.length);
+      for (var i = 0; i < menuSpans.length; i++) {
+        menuSpans[i].onclick = function() {
+          // this代表我当前点击的span
+          // 获取当前span的父元素
+          var parentDiv = this.parentNode;
+
+          // 切换菜单的显示状态
+          toggleMenu(parentDiv);
+
+          // 判断openDiv和parentDiv是否相同
+          if (openDiv != parentDiv && !hasClass(openDiv, "collapsed")) {
+            // 打开的同时，关闭之前打开的二级菜
+            // 为了可以统一处理动画过渡效果，我们希望在这将addClass改为toggleClass
+            // addClass(openDiv, "collapsed");
+            // 此处toggleClass()不需要移除功能
+            // toggleClass(openDiv, "collapsed");
+            toggleMenu(openDiv);
+          }
+
+          // 修改openDiv为当前打开的二级菜单
+          openDiv = parentDiv;
+        };
+      }
+      function toggleMenu(obj) {
+        // 在切换之前，获取元素的高度
+        var begin = obj.offsetHeight;
+
+        // 切换parentDiv
+        toggleClass(obj, "collapsed");
+
+        // 切换之后
+        var end = obj.offsetHeight;
+        console.log("begin=" + begin + ",end=" + end); // 180 30
+        // 动画效果：将高度从begin向end过渡
+        obj.style.height = begin + "px";
+        move(obj, "height", end, 10, function() {
+          // 动画执行完毕，删去内联样式
+          obj.style.height = "";
+        });
+      }
+    };
+  </script>
+  <body>
+    <div>
+      <span class="menuSpan">在线工具</span>
+      <a>图像优化</a>
+      <a>收藏夹</a>
+      <a>邮件</a>
+      <a>密码</a>
+      <a>按钮生成器</a>
+    </div>
+    <div class="collapsed">
+      <span class="menuSpan">支持我们</span>
+      <a>图像优化</a>
+      <a>收藏夹</a>
+      <a>邮件</a>
+      <a>密码</a>
+      <a>按钮生成器</a>
+    </div>
+    <div class="collapsed">
+      <span class="menuSpan">支持我们</span>
+      <a>图像优化</a>
+      <a>收藏夹</a>
+      <a>邮件</a>
+      <a>密码</a>
+      <a>按钮生成器</a>
+    </div>
+    <div class="collapsed">
+      <span class="menuSpan">支持我们</span>
+      <a>图像优化</a>
+      <a>收藏夹</a>
+      <a>邮件</a>
+      <a>密码</a>
+      <a>按钮生成器</a>
+    </div>
+  </body>
 </html>

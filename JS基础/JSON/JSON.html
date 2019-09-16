@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JSON</title>
+  </head>
+  <script>
+    /* 
+        JSON
+        - JS中的对象只有JS自己认识
+        - JSON就是一个特殊格式的字符串，可以被任意语言所识别，并且可以转化为任意语言中的对象
+        - JSON
+            - JavaScript Object Notation JS对象表示法
+            - JSON中的属性名必须加双引号
+        - JSON分类
+            1. 对象{}
+            2. 数组[] 
+        - 六种类型
+    */
+    var obj = '{"name":"sunwukong", "age":18, "gender":"男"}';
+    var arr = '[1,2,3,"hello",true]';
+    console.log(typeof obj);
+
+    /* 
+        将JSON字符串转换为JS中的对象
+        有个工具类JSON，可以互相转换
+    */
+   var json = '{"name":"sunwukong", "age":18, "gender":"男"}';
+   var o = JSON.parse(json);
+   console.log(o.name);
+
+   var obj3 = {name:"zhubajie", age:28, gender:"female"};
+   /* 
+    JS对象转JSON-----JSON.stringify()
+    - ie7不支持
+   */
+   var oo = JSON.stringify(obj3);
+   console.log(oo);
+  </script>
+  <body></body>
+</html>
