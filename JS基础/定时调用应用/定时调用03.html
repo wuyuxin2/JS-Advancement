@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>定时调用</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        left: 0px;
+      }
+      #box2 {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        position: absolute;
+        left: 0px;
+        top: 200px;
+      }
+    </style>
+    <script type="text/javascript" src="tool.js"></script>
+    <script>
+      window.onload = function() {
+        var btn01 = document.getElementById("btn01");
+        var box1 = document.getElementById("box1");
+        var btn02 = document.getElementById("btn02");
+        var btn03 = document.getElementById("btn03");
+        var btn04 = document.getElementById("btn04");
+        btn01.onclick = function() {
+          move(box1, "left", 600, 20); 
+        };
+        btn02.onclick = function() {
+          move(box1, "left", 0, 20);
+        };
+        btn03.onclick = function(){
+          move(box2, "left", 600, 10);
+        }
+        btn04.onclick = function(){
+          move(box2, "width",600, 10, function(){
+            move(box2, "height", 300, 20, function(){
+              alert("动画执行完毕");
+            })
+          });
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <button id="btn01">点击按钮以后box1向右移动</button>
+    <button id="btn02">点击按钮以后box1向左移动</button>
+    <button id="btn03">点击按钮以后box2向左移动</button>
+    <button id="btn04">测试按钮</button>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div
+      style="width:0; height:1000px; border-left:1px solid black; position: absolute; left: 600px; top: 0"
+    ></div>
+  </body>
+</html>

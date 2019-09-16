@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>定时调用</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        left: 0px;
+      }
+    </style>
+    <script>
+      /* 
+        获取任意属性
+       */
+      function getStyle(obj, name) {
+        if (window.getComputedStyle) {
+          // 变量没找着报错，属性没找着返回undefined
+          return getComputedStyle(obj, null)[name];
+        } else {
+          return obj.currentStyle[name];
+        }
+      }
+
+      var timer;
+      /* 
+        执行简单动画的函数
+       */
+      function move(obj, target, speed) {
+        // 关闭上一个定时器
+        clearInterval(timer);
+        // 开启一个定时器来执行动画
+        var current = parseInt(getStyle(obj, "left"));
+        if(current > target){
+          speed = - speed;
+        }
+        timer = setInterval(function() {
+          // 获取box1的原来的left
+          var oldValue = parseInt(getStyle(obj, "left"));
+          // 增加
+          var newValue = oldValue + speed;
+          if (speed < 0 && newValue < target || speed > 0 && newValue > target) {
+            newValue = target;
+          }
+          // 将newValue射者给box1
+          obj.style.left = newValue + "px";
+          if (newValue == target) {
+            clearInterval(timer);
+          }
+        }, 30);
+      }
+
+      window.onload = function() {
+        var btn01 = document.getElementById("btn01");
+        var box1 = document.getElementById("box1");
+        var btn02 = document.getElementById("btn02");
+        var timer;
+        btn01.onclick = function() {
+          move(box1, 600, 20);
+        };
+        btn02.onclick = function() {
+          move(box1, 0, 20);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <button id="btn01">点击按钮以后box1向右移动</button>
+    <button id="btn02">点击按钮以后box2向左移动</button>
+    <div id="box1"></div>
+    <div
+      style="width:0; height:1000px; border-left:1px solid black; position: absolute; left: 600px; top: 0"
+    ></div>
+  </body>
+</html>

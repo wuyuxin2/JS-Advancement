@@ -31,17 +31,32 @@
       window.onload = function() {
         var btn01 = document.getElementById("btn01");
         var box1 = document.getElementById("box1");
+        var timer;
         btn01.onclick = function() {
-          // 获取box1的原来的left
-          var oldValue = getStyle(box1, "left");
+          // 关闭上一个定时器
+          clearInterval(timer);
           // 开启一个定时器来执行动画
-          setInterval(function() {}, 30);
+          timer = setInterval(function() {
+            // 获取box1的原来的left
+            var oldValue = parseInt(getStyle(box1, "left"));
+            // 增加
+            var newValue = oldValue + 19;
+            if (newValue > 600){
+              newValue = 600
+            }
+            // 将newValue射者给box1
+            box1.style.left = newValue + "px";
+            if(newValue == 600){
+               clearInterval(timer);
+            }
+          }, 30);
         };
       };
     </script>
   </head>
   <body>
-    <button id="byn01">点击按钮以后box1向右移动</button>
+    <button id="btn01">点击按钮以后box1向右移动</button>
     <div id="box1"></div>
+    <div style="width:0; height:1000px; border-left:1px solid black; position: absolute; left: 600px; top: 0"></div>
   </body>
 </html>
