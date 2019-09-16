@@ -18,6 +18,7 @@
             1. 对象{}
             2. 数组[] 
         - 六种类型
+            字符串、数值、bool、null、对象、数组
     */
     var obj = '{"name":"sunwukong", "age":18, "gender":"男"}';
     var arr = '[1,2,3,"hello",true]';
@@ -35,6 +36,7 @@
    /* 
     JS对象转JSON-----JSON.stringify()
     - ie7不支持
+        - eval() 可以执行字符串中的js代码
    */
    var oo = JSON.stringify(obj3);
    console.log(oo);
